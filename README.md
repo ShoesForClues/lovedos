@@ -2,11 +2,14 @@
 A framework for making 2D DOS games in Lua. LoveDOS provides an API based on a
 subset of the [LÖVE](https://love2d.org/) API.
 
+This is an updated version, adapted to work with ShoesForClues' Build System, 
+[LuLABI](https://github.com/ShoesForClues/lulabi)
+
 ![screenshot](https://cloud.githubusercontent.com/assets/3920290/21948750/ed49e9a6-d9e4-11e6-960a-1fac0ec41ee0.gif)
 
 ## Getting started
 You can download LoveDOS from the
-[releases page](https://github.com/rxi/lovedos/releases). If you're not
+[releases page](https://github.com/ShoesForClues/lovedos/releases). If you're not
 using DOS as your operating system then [DOSbox](http://www.dosbox.com/) can be
 used to emulate a DOS computer.
 
