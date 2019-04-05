@@ -6,7 +6,7 @@ build the project's source if you want to make changes to the project.
 
 ## Requirements
 LoveDOS depends on the following being installed before building:
-* **[Python2.7](https://www.python.org/)** is required by build.py, the build
+* **[Lua 5.1-5.3](https://www.lua.org/)** is required by build.py, the build
   script
 * **[DJGPP cross compiler](https://github.com/andrewwutw/build-djgpp)** 
   is required to compile the source files
@@ -15,21 +15,18 @@ LoveDOS depends on the following being installed before building:
 ## Building
 To compile you should clone the git repository or
 [download the .zip](https://github.com/rxi/lovedos/archive/master.zip) of it.
-Once this is done you should open the build.py file in an editor and check to
-make sure the COMPILER variable is set to the correct command as to run DJGPP's
-gcc executable; change the COMPILER variable's value if it is not set to the
-correct value.
+Once this is done you should follow the build instructions for [LuLABI](https://github.com/ShoesForClues/lulabi)
 
-Assuming the COMPILER variable is correctly set the script should be run:
+Assuming the COMPILER variable is correctly set the command should be run:
 ```
-./build.py
+lulabi build -f <path_to_love_source>
 ```
- The script will output the following line when it starts:
+ The command will output the following line when it starts:
 ```
-compiling...
+Building: love_dos
 ```
 Within a minute the script should finish and display the following line:
 ```
-done
+Finished.
 ```
 There should now be a file named "love.exe" in the "bin/" directory
