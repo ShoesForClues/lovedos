@@ -1,0 +1,11 @@
+{
+	"project_name": "love_dos",
+	"output": "../bin/love",
+	"compiler": "i586-pc-msdosdjgpp-gcc",
+	"std": "gcc98",
+	"dependencies": [],
+	"includes": ["lib","modules"],
+	"embeds": ["embed"],
+	"cflags": ["O2","Wall","s","Wno-misleading-indentation"],
+	"defines": ["DMT_ABORT_NULL","LUA_COMPAT_ALL"]
+}
