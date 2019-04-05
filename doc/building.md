@@ -6,9 +6,11 @@ build the project's source if you want to make changes to the project.
 
 ## Requirements
 LoveDOS depends on the following being installed before building:
-* **[Lua 5.1-5.3](https://www.lua.org/)** is required by build.py, the build
-  script
+* **[Lua 5.1-5.3](https://www.lua.org/)** is required by LuLABI, the build
+  system
 * **[DJGPP cross compiler](https://github.com/andrewwutw/build-djgpp)** 
+  is required to compile the source files
+* **[LuLABI](https://github.com/ShoesForClues/lulabi)** 
   is required to compile the source files
 
 
