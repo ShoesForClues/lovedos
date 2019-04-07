@@ -100,8 +100,9 @@ their defaults.
 Clears the screen (or canvas) to the color. If no color argument is given
 then the background color is used (see `love.graphics.setBackgroundColor()`).
 
-##### love.graphics.draw(image [, quad] [, x [, y [, flip]]])
-Draws the `image` to the screen at the given `x`, `y` position. If a `quad`
+##### love.graphics.draw(image [, quad] [, x [, y [, width [,height [, flip]]]]])
+Draws the `image` to the screen at the given `x`, `y` position at the size of the
+given width and height. If a `quad`
 argument is provided then the image is clipped to the provided quad when drawn.
 If `flip` is true then the image is flipped horizontally.
 
