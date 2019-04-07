@@ -100,8 +100,8 @@ fail:
 
 
 const char *font_initEmbedded(font_t *self, int ptsize) {
-  #include "font_ttf.h"
-  return initFont(self, font_ttf, ptsize);
+  #include "default_ttf.h"
+  return initFont(self, default_ttf, 8);
 }
 
 
@@ -113,9 +113,7 @@ void font_deinit(font_t *self) {
 extern int image_blendMode;
 extern int image_flip;
 
-void font_blit(font_t *self, pixel_t *buf, int bufw, int bufh,
-               const char *str, int dx, int dy
-) {
+void font_blit(font_t *self, pixel_t *buf, int bufw, int bufh, const char *str, int dx, int dy, int fs) {
   const char *p = str;
   int x = dx;
   int y = dy;
@@ -133,8 +131,7 @@ void font_blit(font_t *self, pixel_t *buf, int bufw, int bufh,
       stbtt_bakedchar *g = &self->glyphs[(int) (*p & 127)];
       int w = g->x1 - g->x0;
       int h = g->y1 - g->y0;
-      image_blit(&self->image, buf, bufw, bufh,
-                 x + g->xoff, y + g->yoff, g->x0, g->y0, w, h);
+      image_blit(&self->image, buf, bufw, bufh, x + g->xoff, y + g->yoff, w, h, g->x0, g->y0, w, h);
       x += g->xadvance;
     }
     p++;

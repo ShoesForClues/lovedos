@@ -20,8 +20,7 @@ typedef struct {
 const char *font_init(font_t *self, const char *filename, int ptsize);
 const char *font_initEmbedded(font_t *self, int ptsize);
 void font_deinit(font_t *self);
-void font_blit(font_t *self, pixel_t *buf, int bufw, int bufh,
-               const char *str, int dx, int dy);
+void font_blit(font_t *self, pixel_t *buf, int bufw, int bufh, const char *str, int dx, int dy, int fs);
 
 
 #endif
