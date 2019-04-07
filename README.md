@@ -5,7 +5,7 @@ subset of the [LÖVE](https://love2d.org/) API.
 This is an updated version, adapted to work with ShoesForClues' Build System, 
 [LuLABI](https://github.com/ShoesForClues/lulabi)
 
-![screenshot](https://i.imgur.com/P293Jke.gifv)
+![screenshot](https://i.imgur.com/hwL1zi7.gif)
 
 ## Getting started
 You can download LoveDOS from the
