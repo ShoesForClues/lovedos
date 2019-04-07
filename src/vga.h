@@ -8,8 +8,8 @@
 #ifndef VGA_H
 #define VGA_H
 
-#define VGA_WIDTH   640
-#define VGA_HEIGHT  480
+#define VGA_WIDTH   320
+#define VGA_HEIGHT  200
 
 typedef unsigned char pixel_t;
 
