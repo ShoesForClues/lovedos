@@ -48,8 +48,7 @@ void image_setFlip(int mode);
 
 const char *image_init(image_t *self, const char *filename);
 void image_initBlank(image_t*, int, int);
-void image_blit(image_t *self, pixel_t *buf, int bufw, int bufh,
-                int dx, int dy, int sx, int sy, int sw, int sh);
+void image_blit(image_t *self, pixel_t *buf, int bufw, int bufh, int dx, int dy, int dw,int dh, int sx, int sy, int sw, int sh);
 void image_deinit(image_t*);
 
 #endif
