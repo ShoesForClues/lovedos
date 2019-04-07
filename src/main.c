@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017 rxi
+ * Copyright (c) 2017 rxi, (c) 2019 ShoesForClues
  *
  * This library is free software; you can redistribute it and/or modify it
  * under the terms of the MIT license. See LICENSE for details.
@@ -12,10 +12,9 @@
 #include <dos.h>
 
 #include "lib/dmt/dmt.h"
-
-#include "luaobj.h"
+#include "vesa.h"
 #include "vga.h"
-#include "audio.h"
+#include "luaobj.h"
 #include "keyboard.h"
 #include "filesystem.h"
 #include "mouse.h"
@@ -28,7 +27,6 @@ static lua_State *L;
 
 static void deinit(void) {
   /* Deinit and clear up everything. Called at exit */
-  audio_deinit();
   vga_deinit();
   keyboard_deinit();
   lua_close(L);
@@ -58,8 +56,7 @@ int main(int argc, char **argv) {
 
   /* Init everything */
   atexit(deinit);
-  audio_init();
-  vga_init();
+  set_vesa_mode_w_h(VGA_WIDTH,VGA_HEIGHT);
   palette_init();
   keyboard_init();
   mouse_init();
@@ -102,6 +99,6 @@ int main(int argc, char **argv) {
       abort();
     }
   }
-
+  
   return 0;
 }
