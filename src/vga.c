@@ -15,7 +15,6 @@
 
 int vga_inited = 0;
 
-
 void vga_init(void) {
   if (vga_inited) return;
   vga_inited = 1;
