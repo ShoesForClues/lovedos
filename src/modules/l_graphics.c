@@ -13,6 +13,7 @@
 #include "font.h"
 #include "quad.h"
 #include "vga.h"
+#include "vesa.h"
 #include "luaobj.h"
 
 image_t  *graphics_screen;
@@ -232,7 +233,8 @@ int l_graphics_clear(lua_State *L) {
 
 
 int l_graphics_present(lua_State *L) {
-  vga_update(graphics_screen->data);
+  //vga_update(graphics_screen->data);
+  copy_to_video_buffer(graphics_screen->data,640*480);
   return 0;
 }
 
@@ -240,27 +242,29 @@ int l_graphics_present(lua_State *L) {
 int l_graphics_draw(lua_State *L) {
   image_t *img = luaobj_checkudata(L, 1, LUAOBJ_TYPE_IMAGE);
   quad_t *quad = NULL;
-  int x, y, flip;
+  int x, y, width, height, flip;
   if (!lua_isnone(L, 2) && lua_type(L, 2) != LUA_TNUMBER) {
     quad = luaobj_checkudata(L, 2, LUAOBJ_TYPE_QUAD);
     x = luaL_optnumber(L, 3, 0);
     y = luaL_optnumber(L, 4, 0);
-    flip = !lua_isnone(L, 5) && lua_toboolean(L, 5);
+	width=luaL_optnumber(L,5,0);
+	height=luaL_optnumber(L,6,0);
+    flip = !lua_isnone(L, 7) && lua_toboolean(L, 7);
   } else {
     x = luaL_optnumber(L, 2, 0);
     y = luaL_optnumber(L, 3, 0);
-    flip = !lua_isnone(L, 4) && lua_toboolean(L, 4);
+	width=luaL_optnumber(L,4,0);
+	height=luaL_optnumber(L,5,0);
+    flip = !lua_isnone(L, 6) && lua_toboolean(L, 6);
   }
   pixel_t *buf = graphics_canvas->data;
   int bufw = graphics_canvas->width;
   int bufh = graphics_canvas->height;
   image_setFlip(flip);
   if (quad) {
-    image_blit(img, buf, bufw, bufh, x, y,
-               quad->x, quad->y, quad->width, quad->height);
+    image_blit(img, buf, bufw, bufh, x, y, width, height, quad->x, quad->y, quad->width, quad->height);
   } else {
-    image_blit(img, buf, bufw, bufh, x, y,
-               0, 0, img->width, img->height);
+    image_blit(img, buf, bufw, bufh, x, y, width, height, 0, 0, img->width, img->height);
   }
   return 0;
 }
@@ -444,8 +448,8 @@ int l_graphics_print(lua_State *L) {
   const char *str = luaL_tolstring(L, 1, NULL);
   int x = luaL_checknumber(L, 2);
   int y = luaL_checknumber(L, 3);
-  font_blit(graphics_font, graphics_canvas->data, graphics_canvas->width,
-            graphics_canvas->height, str, x, y);
+  //int fs = luaL_checknumber(L, 4);
+  font_blit(graphics_font, graphics_canvas->data, graphics_canvas->width, graphics_canvas->height, str, x, y, 0);
   return 0;
 }
 
