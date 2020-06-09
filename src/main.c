@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017 rxi, (c) 2019 ShoesForClues
+ * Copyright (c) 2017 rxi
  *
  * This library is free software; you can redistribute it and/or modify it
  * under the terms of the MIT license. See LICENSE for details.
